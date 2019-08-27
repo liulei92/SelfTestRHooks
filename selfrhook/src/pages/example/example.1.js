@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Example2 from './example.2'
 
 const Example = () => {
   const [count, setCount] = useState(0) // 数组解构

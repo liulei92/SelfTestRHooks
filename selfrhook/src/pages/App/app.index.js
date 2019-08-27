@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../../assets/svg/logo.svg';
 import './App.css';
-import Example from '../example'
+import Example from '../Example/index'
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
       </header>
 
       {/* Example */}
-      <Example></Example>
+      <Example/>
     </div>
   );
 }

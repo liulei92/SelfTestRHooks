@@ -1,30 +1,33 @@
-import React from 'react'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import Example1 from './example.1'
-import Example2 from './example.2'
-import Example3 from './example.3'
+import React, { lazy, Suspense } from 'react'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import './example.css'
 
 const Index = () => {
   return <div>Index</div>
 }
 
-const Example = () => {
+const Example = (props) => {
   return (
     <>
       <Router>
         <ul>
-          <li>
-            <Link to='/'>Index</Link>
-            <Link to='/example1'>example1</Link>
-            <Link to='/example2'>example2</Link>
-            <Link to='/example3'>example3</Link>
-          </li>
+          <li><Link to='/'>index</Link></li>
+          <li><Link to='/example1'>useState</Link></li>
+          <li><Link to='/example2'>useState2</Link></li>
+          <li><Link to='/example3'>useEffect</Link></li>
+          <li><Link to='/example4'>useContext</Link></li>
+          <li><Link to='/example5'>useReducer</Link></li>
         </ul>
-        <Route path='/' exact component={Index}/>
-        <Route path='/example1' exact component={Example1}/>
-        <Route path='/example2' exact component={Example2}/>
-        <Route path='/example3' exact component={Example3}/>
+        <Suspense fallback={null}>
+          <Switch>
+            <Route path='/' exact component={lazy(() => Index)} />
+            <Route path='/example1' exact component={lazy(() => import('./example.1'))} />
+            <Route path='/example2' exact component={lazy(() => import('./example.2'))} />
+            <Route path='/example3' exact component={lazy(() => import('./example.3'))} />
+            <Route path='/example4' exact component={lazy(() => import('./example.4'))} />
+            <Route path='/example5' exact component={lazy(() => import('./example.5'))} />
+          </Switch>
+        </Suspense>
       </Router>
     </>
   )

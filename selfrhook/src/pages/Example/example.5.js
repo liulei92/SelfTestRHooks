@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react'
+import React, { useReducer } from 'react'
 // Reducer
 // const CountReducer = (state, action) => {
 //   switch (action.type) {

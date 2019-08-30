@@ -1,6 +1,0 @@
-li {
-  text-transform: capitalize;
-}
-li + li {
-  margin-left: 5px;
-}
